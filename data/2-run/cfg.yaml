@@ -1,0 +1,46 @@
+seed: 1
+record_video: no
+
+environment:
+  render: True
+# just testing commenting
+  num_envs: 200
+  eval_every_n: 100
+  num_threads: 30
+  simulation_dt: 0.0025
+  #simulation_dt: 0.01
+  control_dt: 0.01
+  max_time: 2.0
+  reward:
+    AirTime:
+      coeff: 1e-1
+    SmoothTorqVel:
+      coeff: 1e-4
+    GeneralHipsAngles:
+      coeff: 1e-3
+#    ForwardVel:
+#      coeff: 0.3
+    BodyHeight:
+      coeff: -1e-3
+    Command:
+      coeff: 0.2
+#    ForwardPos:
+#      coeff: 0.5
+
+    GenTorque:
+      coeff: -1e-6
+    GenVelocity:
+      coeff: -4e-5
+    YaxisPos:
+      coeff: -1e-2
+
+    GeneralBodyOrientation:
+      coeff: -1e-2
+    ClearAndSlip:
+      coeff: -2e-2
+
+
+
+architecture:
+  policy_net: [1024, 1024]
+  value_net: [1024, 1024]
